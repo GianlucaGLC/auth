@@ -103,7 +103,6 @@
        | * org.jasig.cas.adaptors.jdbc.QueryDatabaseAuthenticationHandler
        | * org.jasig.cas.adaptors.x509.authentication.handler.support.X509CredentialsAuthenticationHandler
        | * org.jasig.cas.support.spnego.authentication.handler.support.JCIFSSpnegoAuthenticationHandler
-       -->
     <bean id="primaryAuthenticationHandler"
           class="org.jasig.cas.authentication.AcceptUsersAuthenticationHandler">
         <property name="users">
@@ -112,8 +111,9 @@
             </map>
         </property>
     </bean>
-	
-	<!-- 
+	   -->
+    
+	 
 	<bean id="passwordEncoder"
       class="org.jasig.cas.authentication.handler.DefaultPasswordEncoder"
       c:encodingAlgorithm="MD5"
@@ -128,13 +128,13 @@
 	<bean id="dataSource"
 	  class="com.mchange.v2.c3p0.ComboPooledDataSource"
 	  p:driverClass="com.mysql.jdbc.Driver"
-	  p:jdbcUrl="jdbc:mysql://localhost:3306/joomla_par"
+	  p:jdbcUrl="jdbc:mysql://localhost:3306/joomla_par?autoReconnect=true"
 	  p:user="joomlapar"
 	  p:password="joomlapar123"
 	  p:initialPoolSize="1"
 	  p:minPoolSize="3"
 	  p:maxPoolSize="5" />
-	 -->
+	 
     <!-- Required for proxy ticket mechanism -->
     <bean id="proxyPrincipalResolver"
           class="org.jasig.cas.authentication.principal.BasicPrincipalResolver" />
